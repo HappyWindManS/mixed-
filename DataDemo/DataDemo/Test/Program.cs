@@ -15,23 +15,32 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            string result = UTools.ToGB2312("");
-            //Console.Write("\u4e13\u79d1\u6279\uff08CD\uff09");
-            //https://static-data.eol.cn/www/config/detial/1.json
-            Console.ReadKey();
-            Console.Write("https://static-data.eol.cn/www/config/detial/1.json");
-            Console.WriteLine("结束");
-            Console.ReadKey();
-
-            //int local_province_id = 45;
-            //int local_type_id = 1;
-            //int school_id = 102;
-            //int year = 2018;
-            //string p = string.Format(@"api.eol.cn/gkcx/api/?access_token=&local_province_id={0}&local_type_id={1}&school_id={2}&signsafe=&uri=apidata/api/gk/score/special&year={3}",local_province_id,local_type_id,school_id,year);
-            //string url = "https://" + p;
-
-            //Console.WriteLine(GetWebClient(url));
+            //string result = UTools.ToGB2312("");
+            //Console.WriteLine("\u5b89\u5fbd\u5efa\u7b51\u5927\u5b66");
+            ////https://static-data.eol.cn/www/config/detial/1.json
             //Console.ReadKey();
+
+            int local_province_id = 45;
+            int local_type_id = 1;
+            int school_id = 102;
+            int year = 2018;
+            string p = string.Format(@"api.eol.cn/gkcx/api/?access_token=&local_province_id={0}&local_type_id={1}&school_id={2}&signsafe=&uri=apidata/api/gk/score/special&year={3}", local_province_id, local_type_id, school_id, year);
+            string url = "https://" + p;
+
+            Console.WriteLine(GetWebClient(url));
+            Console.ReadKey();
+        }
+        public void Write()
+        {
+            //FileMode.Append为不覆盖文件效果.create为覆盖
+            FileStream fs = new FileStream("E:\\ak.txt", FileMode.Create);
+            //获得字节数组
+            byte[] data = System.Text.Encoding.Default.GetBytes("Hello World!");
+            //开始写入
+            fs.Write(data, 0, data.Length);
+            //清空缓冲区、关闭流
+            fs.Flush();
+            fs.Close();
         }
         private static string GetWebClient(string url)
         {

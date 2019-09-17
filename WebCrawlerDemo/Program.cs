@@ -64,7 +64,7 @@ namespace Crawler
             //HttpWResp.Close();
             //HttpWReq.Abort();
             #endregion
-            string url = "https://gkcx.eol.cn/school/96";
+            string url = "https://static-data.eol.cn/www/config/detial/1.json";
             HttpWebRequest gkpc = (HttpWebRequest)WebRequest.Create(url);
             //持续性链接
             gkpc.KeepAlive = false;
@@ -73,13 +73,14 @@ namespace Crawler
             //请求方法
             gkpc.Method = "get";
             //文件头
-            gkpc.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3";
+            //gkpc.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3";
+            gkpc.Accept = "application/json, text/plain, */*";
             //来源
-            gkpc.Host = "gkcx.eol.cn";
+            gkpc.Host = "https://gkcx.eol.cn";
             //主机
             //gkpc.Referer = "";
             //不知道是啥反正填上就是了
-            gkpc.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36";
+            gkpc.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36";
             //格林威治时间
             var time = DateTime.Now;
             gkpc.Date = time.AddHours(-5);
