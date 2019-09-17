@@ -64,7 +64,9 @@ namespace Crawler
             //HttpWResp.Close();
             //HttpWReq.Abort();
             #endregion
-            string url = "https://gkcx.eol.cn/school/96";
+            //string url = "https://gkcx.eol.cn/school/96";
+            //https://api.eol.cn/gkcx/api/?access_token=&local_province_id=45&local_type_id=1&school_id=59&signsafe=&uri=apidata/api/gk/score/province&year=2018"
+            string url = "https://api.eol.cn/gkcx/api/?access_token=&local_province_id=45&local_type_id=1&school_id=59&signsafe=&uri=apidata/api/gk/score/province&year=2018";
             HttpWebRequest gkpc = (HttpWebRequest)WebRequest.Create(url);
             //持续性链接
             gkpc.KeepAlive = false;
