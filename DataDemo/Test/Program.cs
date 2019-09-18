@@ -38,6 +38,17 @@ namespace Test
             string lol= GetWebClient(url);
             var s = STrin(lol);
             var two = JsonConvert.DeserializeObject<JsonData>(s);
+
+            Console.WriteLine(ReadTxtContent("1"));
+             
+            List<SchoolData> twoList = JsonConvert.DeserializeObject<List<SchoolData>>(ReadTxtContent("1"));
+
+            foreach (SchoolData stu in twoList)
+            {
+                Console.WriteLine(
+                string.Format("学校信息 学校名称:{0},学校ID：{1}",
+                                             stu.name, stu.code));//显示结果   
+            }
             //List<JsonData> twoList = JsonConvert.DeserializeObject<List<JsonData>>(lol);
 
             //JObject googleSearch = JObject.Parse(lol);
@@ -54,15 +65,28 @@ namespace Test
             //}
             //foreach (var two in twoList)
             //{
-                Console.WriteLine(string.Format("学校信息  地址:{0},分科:{1},最低分数:{2},校名:{3}",
-                            two.local_province_name, two.local_type_name, two.min, two.name));//显示结果
+            //Console.WriteLine(string.Format("学校信息  地址:{0},分科:{1},最低分数:{2},校名:{3}",
+            //                two.local_province_name, two.local_type_name, two.min, two.name));//显示结果
             //}
-            Console.ReadLine();
-            Console.WriteLine(GetWebClient(url));
+            //Console.ReadLine();
+            //Console.WriteLine(GetWebClient(url));
             Console.ReadKey();
 
 
-        }   
+        }
+        public static string ReadTxtContent(string Path)
+        {
+            Path = "D://下载/1.json";
+            StreamReader sr = new StreamReader(Path, Encoding.Default);
+            string content;
+            string str="";
+            while ((content = sr.ReadLine()) != null)
+            {
+                str+=content.ToString();
+            }
+            str = str.Substring(1, str.Length - 2);
+            return str;
+        }
         public static string STrin(string str)
         {
             int num = str.Length;
