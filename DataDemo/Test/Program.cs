@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.DirectoryServices;
+using GetWeb;
 
 namespace Test
 {
@@ -23,33 +24,59 @@ namespace Test
 
             //Console.ReadKey();
 
+            List<JsonData> lalla = new List<JsonData>();
+            for (int i = 0; i < 1000; i++)
+            {
+                int local_province_id = 45;
+                int local_type_id = 1;
+                int school_id = i;
+                int year = 2018;
+                var shcool = GetUrlInfo.UrlInfo(local_province_id.ToString(), local_type_id.ToString(), school_id.ToString(), year.ToString());
+                if (shcool != null)
+                {
+                    var shcoollist = GetWebInfo.JsonCnvList<JsonData>(shcool);
+                    foreach (var shcools in shcoollist)
+                    {
+                        lalla.Add(shcools);
+                    }
+                }
+                else
+                {
 
-            int local_province_id = 45;
-            int local_type_id = 1;
-            int school_id = 125;
-            int year = 2018;
+                }
+                Console.WriteLine("爬取了{0}次", i);
+                //System.Threading.Thread.Sleep(2000);
+               
+            }
+            foreach(var s in lalla)
+            {
+                Console.WriteLine("学校名称:{0},分数线:{1},分科:{2}",s.name,s.min,s.local_type_name);
+            }
+            
+            #region 完成文件
+            ////string p = string.Format(@"api.eol.cn/gkcx/api/?access_token=&local_province_id={0}&
+            ////local_type_id ={1}&school_id={2}&signsafe=&uri=apidata/api/gk/score/special&year={3}", local_province_id, local_type_id, school_id, year);
 
             //string p = string.Format(@"api.eol.cn/gkcx/api/?access_token=&local_province_id={0}&
-            //local_type_id ={1}&school_id={2}&signsafe=&uri=apidata/api/gk/score/special&year={3}", local_province_id, local_type_id, school_id, year);
-            string p = string.Format(@"api.eol.cn/gkcx/api/?access_token=&local_province_id={0}&
-              local_type_id={1}&school_id={2}&signsafe=&uri=apidata/api/gk/score/province&year={3}",
-               local_province_id, local_type_id, school_id, year);
-            string url = "https://" + p;
-            string lol= GetWebClient(url);
-            var s = STrin(lol);
-            var two = JsonConvert.DeserializeObject<JsonData>(s);
+            //  local_type_id={1}&school_id={2}&signsafe=&uri=apidata/api/gk/score/province&year={3}",
+            //   local_province_id, local_type_id, school_id, year);
+            //string lol= GetWebClient("https://" + p);
+            //var s = STrin(lol);
+            //var two = JsonConvert.DeserializeObject<JsonData>(s);
 
 
-            Console.WriteLine(two.name+two.school_id);
-             
-            List<SchoolData> twoList = JsonConvert.DeserializeObject<List<SchoolData>>("[{ 'name':'\u5317\u4eac','code':'11'},{ 'name':'\u5929\u6d25','code':'12'},{ 'name':'\u6cb3\u5317','code':'13'},{ 'name':'\u5c71\u897f','code':'14'},{ 'name':'\u5185\u8499\u53e4','code':'15'},{ 'name':'\u8fbd\u5b81','code':'21'},{ 'name':'\u5409\u6797','code':'22'},{ 'name':'\u9ed1\u9f99\u6c5f','code':'23'},{ 'name':'\u4e0a\u6d77','code':'31'},{ 'name':'\u6c5f\u82cf','code':'32'},{ 'name':'\u6d59\u6c5f','code':'33'},{ 'name':'\u5b89\u5fbd','code':'34'},{ 'name':'\u798f\u5efa','code':'35'},{ 'name':'\u6c5f\u897f','code':'36'},{ 'name':'\u5c71\u4e1c','code':'37'},{ 'name':'\u6cb3\u5357','code':'41'},{ 'name':'\u6e56\u5317','code':'42'},{ 'name':'\u6e56\u5357','code':'43'},{ 'name':'\u5e7f\u4e1c','code':'44'},{ 'name':'\u5e7f\u897f','code':'45'},{ 'name':'\u6d77\u5357','code':'46'},{ 'name':'\u91cd\u5e86','code':'50'},{ 'name':'\u56db\u5ddd','code':'51'},{ 'name':'\u8d35\u5dde','code':'52'},{ 'name':'\u4e91\u5357','code':'53'},{ 'name':'\u897f\u85cf','code':'54'},{ 'name':'\u9655\u897f','code':'61'},{ 'name':'\u7518\u8083','code':'62'},{ 'name':'\u9752\u6d77','code':'63'},{ 'name':'\u5b81\u590f','code':'64'},{ 'name':'\u65b0\u7586','code':'65'},{ 'name':'\u53f0\u6e7e','code':'71'},{ 'name':'\u9999\u6e2f','code':'81'},{ 'name':'\u6fb3\u95e8','code':'82'}]");
+            //Console.WriteLine(two.name+two.school_id);
 
-            foreach (SchoolData stu in twoList)
-            {
-                Console.WriteLine(
-                string.Format("学校信息 学校名称:{0},学校ID：{1}",
-                                             stu.name, stu.code));//显示结果   
-            }
+            //List<SchoolData> twoList = JsonConvert.DeserializeObject<List<SchoolData>>("[{ 'name':'\u5317\u4eac','code':'11'},{ 'name':'\u5929\u6d25','code':'12'},{ 'name':'\u6cb3\u5317','code':'13'},{ 'name':'\u5c71\u897f','code':'14'},{ 'name':'\u5185\u8499\u53e4','code':'15'},{ 'name':'\u8fbd\u5b81','code':'21'},{ 'name':'\u5409\u6797','code':'22'},{ 'name':'\u9ed1\u9f99\u6c5f','code':'23'},{ 'name':'\u4e0a\u6d77','code':'31'},{ 'name':'\u6c5f\u82cf','code':'32'},{ 'name':'\u6d59\u6c5f','code':'33'},{ 'name':'\u5b89\u5fbd','code':'34'},{ 'name':'\u798f\u5efa','code':'35'},{ 'name':'\u6c5f\u897f','code':'36'},{ 'name':'\u5c71\u4e1c','code':'37'},{ 'name':'\u6cb3\u5357','code':'41'},{ 'name':'\u6e56\u5317','code':'42'},{ 'name':'\u6e56\u5357','code':'43'},{ 'name':'\u5e7f\u4e1c','code':'44'},{ 'name':'\u5e7f\u897f','code':'45'},{ 'name':'\u6d77\u5357','code':'46'},{ 'name':'\u91cd\u5e86','code':'50'},{ 'name':'\u56db\u5ddd','code':'51'},{ 'name':'\u8d35\u5dde','code':'52'},{ 'name':'\u4e91\u5357','code':'53'},{ 'name':'\u897f\u85cf','code':'54'},{ 'name':'\u9655\u897f','code':'61'},{ 'name':'\u7518\u8083','code':'62'},{ 'name':'\u9752\u6d77','code':'63'},{ 'name':'\u5b81\u590f','code':'64'},{ 'name':'\u65b0\u7586','code':'65'},{ 'name':'\u53f0\u6e7e','code':'71'},{ 'name':'\u9999\u6e2f','code':'81'},{ 'name':'\u6fb3\u95e8','code':'82'}]");
+
+            //foreach (SchoolData stu in twoList)
+            //{
+            //    Console.WriteLine(
+            //    string.Format("学校信息 学校名称:{0},学校ID：{1}",
+            //                                 stu.name, stu.code));//显示结果   
+            //}
+            #endregion
+            #region 测试
             //List<JsonData> twoList = JsonConvert.DeserializeObject<List<JsonData>>(lol);
 
             //JObject googleSearch = JObject.Parse(lol);
@@ -71,6 +98,7 @@ namespace Test
             //}
             //Console.ReadLine();
             //Console.WriteLine(GetWebClient(url));
+            #endregion
             Console.ReadKey();
 
 
