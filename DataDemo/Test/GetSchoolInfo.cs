@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Test
 {
-    public class JsonData
+    public class GetSchoolInfo
     {
         public string average { get; set; }
         public string dual_class_name { get; set; }

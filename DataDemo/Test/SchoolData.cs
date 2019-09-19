@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Test
 {
-     public class SchoolData
+     public class schoolData
     {
         public string code { get; set; }
         public string name { get; set; }

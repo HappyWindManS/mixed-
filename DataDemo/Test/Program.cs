@@ -37,16 +37,16 @@ namespace Test
             string url = "https://" + p;
             string lol= GetWebClient(url);
             var s = STrin(lol);
-            var two = JsonConvert.DeserializeObject<JsonData>(s);
+            var two = JsonConvert.DeserializeObject<GetSchoolInfo>(s);
+            
+            string lll=ReadTxtContent("1");
+            Console.WriteLine(lll);
+            List<schoolData> twoList = JsonConvert.DeserializeObject<List<schoolData>>(lll);
 
-            Console.WriteLine(ReadTxtContent("1"));
-             
-            List<SchoolData> twoList = JsonConvert.DeserializeObject<List<SchoolData>>(ReadTxtContent("1"));
-
-            foreach (SchoolData stu in twoList)
+            foreach (schoolData stu in twoList)
             {
                 Console.WriteLine(
-                string.Format("学校信息 学校名称:{0},学校ID：{1}",
+                string.Format("信息 所在地:{0},所在地ID：{1}",
                                              stu.name, stu.code));//显示结果   
             }
             //List<JsonData> twoList = JsonConvert.DeserializeObject<List<JsonData>>(lol);
@@ -76,7 +76,7 @@ namespace Test
         }
         public static string ReadTxtContent(string Path)
         {
-            Path = "D://下载/1.json";
+            Path = "D://1.json";
             StreamReader sr = new StreamReader(Path, Encoding.Default);
             string content;
             string str="";
@@ -84,7 +84,7 @@ namespace Test
             {
                 str+=content.ToString();
             }
-            str = str.Substring(1, str.Length - 2);
+            //str = str.Substring(1, str.Length - 2);
             return str;
         }
         public static string STrin(string str)
