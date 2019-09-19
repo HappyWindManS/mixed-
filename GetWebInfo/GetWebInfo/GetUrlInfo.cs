@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GetWeb
 {
     public class GetUrlInfo
     {
         //读取网页信息
-        public static string UrlInfo(string local_province_id,string local_type_id,string school_id,string year)
+        public static string UrlInfo(string local_province_id, string local_type_id, string school_id, string year)
         {
             string p = string.Format(@"api.eol.cn/gkcx/api/?access_token=&local_province_id={0}&
                                      local_type_id={1}&school_id={2}&signsafe=&uri=apidata/api/gk/score/province&year={3}",
@@ -20,7 +15,7 @@ namespace GetWeb
         }
         //获取的网页信息转换成string
         public static string GetWebClient(string url)
-        { 
+        {
             string strHTML = "";
             WebClient myWebClient = new WebClient();
             Stream myStream = myWebClient.OpenRead(url);
@@ -34,7 +29,7 @@ namespace GetWeb
         {
             int num = st.IndexOf("[");
             int num1 = st.IndexOf("]");
-            st = st.Substring(num,num1-num+1);
+            st = st.Substring(num, num1 - num + 1);
             return st;
         }
     }

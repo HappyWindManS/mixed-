@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolDataCF_Test", "SchoolDataCF_Test.csproj", "{DD72DBBB-CAB8-48FB-8DCF-B77F9FB73F6A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD72DBBB-CAB8-48FB-8DCF-B77F9FB73F6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD72DBBB-CAB8-48FB-8DCF-B77F9FB73F6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD72DBBB-CAB8-48FB-8DCF-B77F9FB73F6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD72DBBB-CAB8-48FB-8DCF-B77F9FB73F6A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {10850EE1-E180-4ABF-91BE-7CEA3CB32A54}
+	EndGlobalSection
+EndGlobal
