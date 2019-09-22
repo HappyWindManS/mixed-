@@ -55,6 +55,10 @@
     <Compile Include="Data_Table\MajorScoreModel.cs" />
     <Compile Include="Data_Table\RegionModel.cs" />
     <Compile Include="Data_Table\SchoolScoreModel.cs" />
+    <Compile Include="Data_Table\User.cs" />
+    <Compile Include="GetWebModel\MajorScoreModelG.cs" />
+    <Compile Include="GetWebModel\RegionModelG.cs" />
+    <Compile Include="GetWebModel\SchoolScoreModelG.cs" />
     <Compile Include="GKdata.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -64,6 +68,8 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="GetWebInfo\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

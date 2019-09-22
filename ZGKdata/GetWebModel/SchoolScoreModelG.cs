@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ZGKdata.Data_Table
 {
-    public class SchoolScoreModel
+    public class SchoolScoreModelG
     {
-        [Key]
-        public string id { get; set; }
         public string average { get; set; }
         public string dual_class_name { get; set; }
         public string filing { get; set; }

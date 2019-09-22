@@ -20,6 +20,7 @@
         public virtual DbSet<MajorScoreModel> Schools { get; set; }
         public virtual DbSet<SchoolScoreModel> SchoolScores { get; set; }
         public virtual DbSet<RegionModel> Regions { get; set; }
+        public virtual DbSet<User> Users { get; set; }
         //为您要在模型中包含的每种实体类型都添加 DbSet。有关配置和使用 Code First  模型
         //的详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=390109。
 

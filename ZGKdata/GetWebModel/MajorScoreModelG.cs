@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ZGKdata.Data_Table
 {
-    public class MajorScoreModel
+    public class MajorScoreModelG
     {
-        [Key]
-        public string id { get; set; }
         public string average { get; set; }
         public string year { get; set; }
         public string min { get; set; }
@@ -24,6 +21,9 @@ namespace ZGKdata.Data_Table
         public string name { get; set; }
         public string local_type_name { get; set; }
         public string dual_class_name { get; set; }
-        public string proscore { get; set; }      
+        public string proscore { get; set; }
+ 
+      
+        
     }
 }
