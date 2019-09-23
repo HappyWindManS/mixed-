@@ -37,7 +37,7 @@ namespace CarDataCN
             string st = string.Empty;
             for(int l=0;l<60;l++)
             {
-                string sr = ("中国汽车名人("+(l+1)+").jpg");
+                string sr = ((l+1)+".jpg");
                 st += ("'"+(l+1)+"'"+ ":{ 'name':'"+CnName[l]+"'," +
                     "'content':[{'content':'"+CnCode[l]+"'," +
                     "'url':'"+sr+"'}]},");
