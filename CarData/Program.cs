@@ -15,7 +15,7 @@ namespace CarData
             //string p = string.Format(@"auto.sohu.com/s2013/60yearpeople/index.shtml"
             //                         );
             //var data=GetWebClient("https://" + p);
-            string path = @"C:/Users/ND01/Desktop/新建文本文档.txt";
+            string path = @"C:/Users/MR/Desktop/CarData.txt";
             StreamReader sr = new StreamReader(path, Encoding.GetEncoding("GB2312"));
             String line;
             string data = "";
@@ -40,33 +40,29 @@ namespace CarData
         }
         public static string StringConformity(string str)
         {
+            int num = 0;
+            int num1 = 0;
+            int num2 = 0;
             for (int i = 0; i < str.Length - 1; i++)
             {
-                if (str.Substring(i, 1) == " ")
+                if(str.Substring(0,1)=="<")
                 {
-
+                    str = str.Substring(1, str.Length - 1);
                 }
-                else if (str.Substring(i, 1) == "年")
+                num = str.IndexOf("<");
+                num1 = str.IndexOf(">");
+                num2 = str.IndexOf("]");
+                if(str.Substring(num1+1,1)=="[")
+                {               
+                    str = str.Substring(num2+2, str.Length - num2-2);
+                }
+                else
                 {
-                    if (str.Substring(i, 4) == "年筑梦人")
-                    {
-                        str = str.Remove(i, 4);
-                        str = str.Insert(i, " ");
-                    }
-                    else if (!CheckStringChineseReg(str.Substring(i, 1)) && !isTel(str.Substring(i, 1)))
-                    {
-                        str = str.Remove(i, 1);
-                        str = str.Insert(i, " ");
-                    }
+                    Console.WriteLine(str.Substring(num1+1,num-num1-1));
+                    str = str.Substring(num+1 , str.Length - num-1);
                 }
-                else if(!CheckStringChineseReg(str.Substring(i, 1)) && !isTel(str.Substring(i, 1)))
-                {
-                    str = str.Remove(i, 1);
-                    str = str.Insert(i, " ");
-                }
-               
             }
-            return str;
+            return "";
         }
         /// <summary>
         /// 用 正则表达式 判断字符是不是汉字
